@@ -8,15 +8,20 @@ import java.util.regex.Matcher;
 
 
 public class PingMonitor {
-    private static final int PING_TIMEOUT = 5000; //the time given to try reaching the host;
-    private static final long timeInterval = 900000; //the time interval between the pinging;
-    private static final int PING_REQUEST_COUNT = 5; //how many times the program will send ping requests;
-
+    private static final int PING_TIMEOUT = 5000; 
+    private static final long timeInterval = 900000; 
+    private static final int PING_REQUEST_COUNT = 5; 
+    /*the time given to try reaching the host;
+    the time interval between the pinging; 
+    how many times the program will send ping requests */
     
     
     private static void sendPingRequest(String ip) throws IOException {
-        InetAddress inetAddress = InetAddress.getByName(String.valueOf(ip)); //getting the string value of the input ip;
-        if (inetAddress.isReachable(PING_TIMEOUT)) //checking if we can reach the host for the time given (5sec);
+        InetAddress inetAddress = InetAddress.getByName(String.valueOf(ip)); 
+        if (inetAddress.isReachable(PING_TIMEOUT)) 
+            /*getting the string value of the input ip;
+            checking if we can reach the host for the time given (5sec); */
+            
         {
             System.out.println("Host is reachable");
             System.out.println("Sending Ping Request to " + ip);
@@ -37,15 +42,15 @@ public class PingMonitor {
         while (true) {
             url = sc.nextLine();
             String regex = "\\b(https://?|ftp://|file://|www.)[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
-            Pattern pattern = Pattern.compile(regex); //validation with regex;
+            Pattern pattern = Pattern.compile(regex); 
             matcher = pattern.matcher(url);
             if (!matcher.matches()) {
                 System.out.println("Wrong URL, try again...");
                 continue;
             }
             break;
-        }
-        
+        } 
+        //validation with regex
         
 
         while (true) {
